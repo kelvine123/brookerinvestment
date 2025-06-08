@@ -984,6 +984,20 @@ p {
 }
 
 @media (max-width: 768px) {
+    .logo {
+        font-size: clamp(1rem, 4vw, 1.5rem); /* More aggressive scaling on small screens */
+        justify-content: center;
+        padding-left: 70px;
+    }
+    .header{
+        position: fixed;
+        height: 60px;
+    }
+    .loga {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+    } 
   .hero-video {
     height: 80vh;
     min-height: 400px;
@@ -1002,6 +1016,13 @@ p {
 }
 
 @media (max-width: 576px) {
+
+
+    .loga img {
+        content: url('/images/logo.png');
+        width: 60px;
+    }
+
   .hero-video {
     height: 70vh;
     min-height: 350px;
