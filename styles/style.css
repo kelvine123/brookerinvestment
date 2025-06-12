@@ -171,7 +171,8 @@ body {
 
 .page-hero {
     position: relative;
-    height: 60vh;
+    height: 70vh;        /* Increase from 60vh to 70vh */
+    min-height: 350px;   /* Increase min-height */
     margin-top: 60px;
     overflow: hidden;
 }
@@ -196,6 +197,37 @@ body {
 .page-hero h1 {
     font-size: 3rem;
     margin-bottom: 15px;
+}
+
+/* HERO SECTION SLIDESHOW */
+.page-hero {
+    position: relative;
+    height: 70vh;
+    min-height: 350px;
+    margin-top: 60px;
+    overflow: hidden;
+}
+
+.hero-slideshow {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 1;
+}
+
+.hero-slideshow .slide {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease;
+    z-index: 1;
+}
+
+.hero-slideshow .slide.active {
+    opacity: 1;
+    z-index: 2;
 }
 
 /* Card Hover Effects */
@@ -458,7 +490,8 @@ body {
     gap: 50px;
     align-items: center;
 }
-     .equipment-grid img{
+
+.equipment-grid img{
         width: 100%;
         height: 300px;
      }
@@ -909,6 +942,42 @@ p {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .experience-content {
+    margin-bottom: 10px; /* or padding-bottom: 10px */
+  }
+
+
+    .experience-image img {
+        display: none;
+        margin-bottom: 0;
+    }
+
+
+    .construction-section h2 {
+        font-size: 2rem;
+    }
+    
+    .section-description {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+    
+    .image-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .image-container img,
+    .placeholder-image {
+        height: 200px;
+    }
+
+/* Section divider */
+.section-divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ddd, transparent);
+    margin: 80px 0;
+}
     .menu-toggle {
         display: block;
     }
@@ -1112,4 +1181,39 @@ p {
     .section-title {
         font-size: 1.5rem;
     }
+}
+
+@media (max-width: 768px) {
+    .page-hero {
+        height: 60vh;      /* Increase from 50vh to 60vh */
+        min-height: 280px; /* Increase min-height */
+    }
+}
+
+@media (max-width: 480px) {
+    .page-hero {
+        height: 50vh;
+        min-height: 200px;
+    }
+}
+
+/* Hero Slideshow */
+.hero-slideshow {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 1;
+}
+
+.hero-slideshow .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.hero-slideshow .slide.active {
+    opacity: 1;
+    z-index: 2;
 }
