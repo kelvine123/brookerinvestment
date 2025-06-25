@@ -51,8 +51,10 @@ body {
 
 .header .container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    position: relative;
 }
 
 .logo {
@@ -154,7 +156,7 @@ body {
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     animation: fadeInUp 1s ease;
-    color: white;~
+    color: white;
 }
 
 .hero-content p {
@@ -1067,8 +1069,9 @@ p {
 }
 
     .loga img {
-    width: 100%;
+    max-width: 120px;   /* Adjust width as needed */
     height: auto;
+    display: block;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
 }
 }
@@ -1125,7 +1128,7 @@ p {
 
 
     .loga img {
-        content: url('/images/logo.png');
+        content: url('/images/bk.jpeg');
         width: 60px;
     }
 
@@ -1216,4 +1219,45 @@ p {
 .hero-slideshow .slide.active {
     opacity: 1;
     z-index: 2;
+}
+
+/* Add this to your main .loga styling */
+.loga {
+    position: absolute;
+    top: 15px;  /* Adjust as needed */
+    left: 20px; /* Adjust as needed */
+    z-index: 4;
+    width: 80px; /* Set a reasonable default width */
+    transition: all 0.3s ease;
+}
+
+.loga img {
+    width: 100%;
+    height: auto;
+    max-width: 80px; /* Prevent it from getting too large */
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .loga {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        width: 60px; /* Smaller on mobile */
+    }
+    
+    .loga img {
+        max-width: 60px;
+    }
+}
+
+@media (max-width: 576px) {
+    .loga {
+        width: 50px; /* Even smaller on very small screens */
+    }
+    
+    .loga img {
+        max-width: 50px;
+    }
 }
