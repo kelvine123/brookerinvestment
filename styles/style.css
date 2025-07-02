@@ -115,6 +115,7 @@ body {
     min-height: 500px;
     margin-top: 60px; /* Account for fixed header */
     overflow: hidden;
+    width: 100%;
 }
 
 .hero-video video {
@@ -127,6 +128,7 @@ body {
     width: auto;
     height: auto;
     z-index: 1;
+    object-fit: cover; /* Ensures video covers the container properly */
 }
 
 .video-overlay {
@@ -146,90 +148,129 @@ body {
     transform: translate(-50%, -50%);
     text-align: center;
     color: white;
-    width: 80%;
+    width: 90%;
     max-width: 800px;
     z-index: 3;
+    padding: 0 20px;
 }
 
 .hero-content h1 {
-    font-size: 3.5rem;
+    font-size: clamp(2rem, 5vw, 3.5rem);
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     animation: fadeInUp 1s ease;
     color: white;
+    line-height: 1.2;
 }
 
 .hero-content p {
-    font-size: 1.3rem;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
     margin-bottom: 30px;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
     animation: fadeInUp 1.2s ease;
     color: white;
+    line-height: 1.4;
 }
 
 .hero-buttons {
     animation: fadeInUp 1.4s ease;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-.page-hero {
-    position: relative;
-    height: 70vh;        /* Increase from 60vh to 70vh */
-    min-height: 350px;   /* Increase min-height */
-    margin-top: 60px;
-    overflow: hidden;
+/* Media Queries for Hero Video */
+@media (max-width: 1200px) {
+    .hero-video {
+        min-height: 600px;
+    }
+    .hero-content {
+        width: 85%;
+        max-width: 700px;
+    }
 }
 
-.page-hero img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+@media (max-width: 992px) {
+    .hero-video {
+        min-height: 500px;
+    }
+    .hero-content {
+        width: 90%;
+        max-width: 600px;
+    }
 }
 
-.page-hero .hero-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-    width: 80%;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+@media (max-width: 768px) {
+    .hero-video {
+        min-height: 400px;
+        margin-top: 60px;
+    }
+    .hero-content {
+        width: 95%;
+        padding: 0 15px;
+    }
+    .hero-buttons {
+        gap: 10px;
+    }
+    .hero-buttons .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    .hero-video video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        min-width: 100%;
+        min-height: 100%;
+    }
 }
 
-.page-hero h1 {
-    font-size: 3rem;
-    margin-bottom: 15px;
+@media (max-width: 576px) {
+    .hero-video {
+        min-height: 400px;
+        margin-top: 60px;
+    }
+    .hero-content {
+        width: 95%;
+        padding: 0 10px;
+    }
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .hero-buttons .btn {
+        width: 200px;
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
 }
 
-/* HERO SECTION SLIDESHOW */
-.page-hero {
-    position: relative;
-    height: 70vh;
-    min-height: 350px;
-    margin-top: 60px;
-    overflow: hidden;
+@media (max-width: 400px) {
+    .hero-video {
+        min-height: 300px;
+    }
+    .hero-content {
+        width: 100%;
+        padding: 0 10px;
+    }
+    .hero-buttons .btn {
+        width: 180px;
+        padding: 10px 20px;
+    }
 }
 
-.hero-slideshow {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    z-index: 1;
-}
-
-.hero-slideshow .slide {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 1s ease;
-    z-index: 1;
-}
-
-.hero-slideshow .slide.active {
-    opacity: 1;
-    z-index: 2;
+@media (max-width: 320px) {
+    .hero-video {
+        min-height: 250px;
+    }
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+    .hero-content p {
+        font-size: 0.9rem;
+    }
 }
 
 /* Card Hover Effects */
@@ -1093,6 +1134,9 @@ p {
 }
 
 @media (max-width: 768px) {
+      .hero-video {
+    min-height: 300px;
+  }
     .logo {
         font-size: clamp(1rem, 4vw, 1.5rem); /* More aggressive scaling on small screens */
         justify-content: center;
@@ -1133,8 +1177,8 @@ p {
     }
 
   .hero-video {
-    height: 70vh;
-    min-height: 350px;
+    height: 50vh;
+    min-height: 250px;
   }
   .hero-content h1 {
     font-size: 2rem;
