@@ -43,18 +43,20 @@ body {
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 1000;
+    z-index: 100;
     box-shadow: var(--shadow);
     transition: var(--transition);
-    animation: headerReveal 0.8s ease-out forwards;
+    
 }
 
 .header .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 0;
-}
+    padding: 9.8px 0;
+    justify-content: center;
+    align-items: center;
+    }
 
 .logo {
     font-size: 1.5rem;
@@ -67,17 +69,18 @@ body {
 
 .loga {
     position: absolute;
-    top: 15px;
-    left: 20px;
-    z-index: 4;
-    width: 80px;
-    transition: var(--transition);
+    top: 0px;
+    left: 0px;
+    z-index: 40;
+    width: 10000px;
+    height: 1%;
+    transition: 3s ease-in-out
 }
 
 .loga img {
     width: 100%;
     height: auto;
-    max-width: 80px;
+    max-width: 100px;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
 }
 
@@ -112,9 +115,11 @@ body {
 .page-header {
     background: var(--primary);
     color: white;
-    padding: 100px 0 50px;
+    padding: 100px 0 100px;
     text-align: center;
     margin-top: 60px;
+    position: relative;
+    
 }
 
 .page-header h1 {
